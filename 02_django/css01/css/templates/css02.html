@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+      a{
+        text-decoration:none;
+      }
+      ul{
+        list-style:none;
+      }
+      p:hover{
+        background:black;
+        color:yellow;
+      }
+      p.c1{
+        color:red;
+      }
+      ul > li > a{
+        color:black;
+        font-size:1.5em;
+      }
+      ul > li > a:hover{
+        color:red;
+      }
+
+      input[name="id"]{
+        background:yellow;
+      }
+       input:hover{
+        background:gray;
+      }
+    </style>
+</head>
+<body>
+  <p>Paragraph1</p>
+  <p class="c1">Paragraph1</p>
+  <p>Paragraph1</p>
+  <ul>
+    <li><a href="">Click1</a></li>
+    <li><a href="">Click2</a></li>
+    <li><a href="">Click3</a></li>
+  </ul>
+  <form>
+    ID<input type="text" name="id"><br>
+    PWD<input type="password" name="pwd"><br>
+    <input type="submit" value="LOGIN">
+  </form>
+</body>
+</html>
+

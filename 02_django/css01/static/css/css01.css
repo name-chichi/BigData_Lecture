@@ -1,0 +1,22 @@
+/* 2021 06 02 */
+@import url('https://fonts.googleapis.com/css2?family=Limelight&family=Odibee+Sans&display=swap');
+body{
+    background:gray;
+}
+h1{
+    font-family: 'Limelight', cursive;
+    color:white;
+    background:blue;
+}
+p{
+    font-family: 'Odibee Sans', cursive;
+    color:yellow;
+    background:red;
+}
+#p1{
+    color:blue;
+    font-size:2em;
+}
+.c1{
+    color:white;
+}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block content %}
+  <header>
+      <h1>HTML5, CSS3.0</h1>
+  </header>
+  <ul id="menu">
+      <li><a href="{% url 'html5' %}">HTML5</a></li>
+      <li><a href="#">CSS3.0</a></li>
+      <li><a href="#">JavaScript</a></li>
+      <li><a href="#">jQuery</a></li>
+      <li><a href="#">AJAX</a></li>
+  </ul>
+    {% if section != None %}
+        {% include section %}
+    {% else %}
+        <section></section>
+    {% endif %}
+  <footer></footer>
+{% endblock %}
