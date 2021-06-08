@@ -31,4 +31,7 @@ urlpatterns = [
     path('loginimpl', views.loginimpl, name='loginimpl'),
     path('registerimpl', views.registerimpl, name='registerimpl'),
     path('logout', views.logout, name='logout'),
+    path('userlist', views.userlist, name='userlist'),
+    path('additem', views.additem, name='additem'),
+    path('itemlist', views.itemlist, name='itemlist'),
 ]

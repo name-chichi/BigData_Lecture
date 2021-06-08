@@ -1,5 +1,13 @@
 from django.shortcuts import render
 
+from db.dao.userdb import UserDB
+from db.frame.sqlitedao import SqliteDao
+from db.vo.uservo import UserVO
+
+sqlitedao = SqliteDao('shop')
+sqlitedao.makeTable()
+udb = UserDB('shop')
+
 # Create your views here.
 def home(request):
     return render(request, 'base.html')
@@ -16,14 +24,19 @@ def loginimpl(request):
     print('id : ', id, 'pwd : ', pwd)
 
     context = {}
-    if id == 'qq' and pwd == '11':
-        request.session['sessionid'] = id
-        context['section'] = 'loginok.html'
-        context['loginid'] = id
-    else:
+    try:
+        dbuser = udb.select(id)
+        print(dbuser)
+        if pwd == dbuser.getPwd():
+            request.session['sessionid'] = id
+            context['section'] = 'loginok.html'
+            context['loginuser'] = dbuser
+        else:
+            raise Exception
+    except:
         context['section'] = 'loginfail.html'
+        print("Error..")
 
-    print('세션ID : ', request.session['sessionid'])
     return render(request, 'base.html', context)
 
 def logout(request):
@@ -36,6 +49,10 @@ def registerimpl(request):
     pwd = request.GET['pwd']
     name = request.GET['name']
     print('id : ', id, 'pwd : ', pwd, 'name : ', name)
+
+    # 회원정보를 디비에 저장
+    user = UserVO(id,pwd,name)
+    udb.insert(user)
 
     context = {
         'section': 'registerok.html',
@@ -78,3 +95,20 @@ def ajax(request):
         'section': 'ajax.html'
     }
     return render(request, 'base.html', context)
+
+
+def userlist(request):
+    users = udb.selectall()
+    context = {
+        'section': 'userlist.html',
+        'users': users
+    }
+    return render(request, 'base.html', context)
+
+def additem(request):
+
+
+    return
+
+def itemlist(request):
+    return
