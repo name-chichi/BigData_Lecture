@@ -1,6 +1,26 @@
+<style>
+  section > table {
+    width:300px;
+    border:2px solid red;
+  }
+</style>
+
 <section>
   <h1>User List Page</h1>
-  {% for i in users %}
-    <h2>{{i.name}}</h2>
+
+  <table>
+    <thead>
+      <tr><th>ID</th><th>NAME</th></tr>
+    </thead>
+    <tbody>
+    {% for u in users %}
+      <tr><td><a href="{% url 'userdetail' %}?id={{u.id}}">{{u.id}}</a></td><td>{{u.name}}</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+
+  {% for u in users %}
+    <h2>{{u.id}}  {{u.name}}</h2>
   {% endfor %}
 </section>

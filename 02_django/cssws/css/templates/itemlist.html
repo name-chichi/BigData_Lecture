@@ -1,4 +1,24 @@
 <section>
   <h1>Item List Page</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>PRICE</th>
+        <th>REGDATE</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in itemlist %}
+      <tr>
+        <td><a href="{% url 'itemdetail' %}?id={{i.id}}">{{i.id}}</a></td>
+        <td>{{i.name}}</td>
+        <td>{{i.price}}</td>
+        <td>{{i.regdate}}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
 
 </section>

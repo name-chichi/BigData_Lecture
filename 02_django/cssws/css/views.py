@@ -1,12 +1,15 @@
 from django.shortcuts import render
 
+from db.dao.itemdb import ItemDB
 from db.dao.userdb import UserDB
 from db.frame.sqlitedao import SqliteDao
+from db.vo.itemvo import ItemVO
 from db.vo.uservo import UserVO
 
 sqlitedao = SqliteDao('shop')
 sqlitedao.makeTable()
 udb = UserDB('shop')
+idb = ItemDB('shop')
 
 # Create your views here.
 def home(request):
@@ -98,6 +101,7 @@ def ajax(request):
 
 
 def userlist(request):
+    # 사용자 정보를 모두 조회
     users = udb.selectall()
     context = {
         'section': 'userlist.html',
@@ -105,10 +109,45 @@ def userlist(request):
     }
     return render(request, 'base.html', context)
 
+def userdetail(request):
+    id = request.GET['id']
+    user = udb.select(id)
+    context = {
+        'section': 'userdetail.html',
+        'userdata': user
+    }
+    return render(request, 'base.html', context)
+
 def additem(request):
+    context = {
+        'section': 'additem.html'
+    }
+    return render(request, 'base.html', context)
 
-
-    return
+def additemimpl(request):
+    name = request.GET['name']
+    price = int(request.GET['price'])
+    item = ItemVO(0,name,price,'')
+    idb.insert(item)
+    context = {
+        'section': 'additemok.html',
+        'item': item
+    }
+    return render(request, 'base.html', context)
 
 def itemlist(request):
-    return
+    items = idb.selectall()
+    context = {
+        'section': 'itemlist.html',
+        'itemlist': items
+    }
+    return render(request, 'itemlist.html', context)
+
+def itemdetail(request):
+    id = request.GET['id']
+    item = idb.select(id)
+    context = {
+        'section': 'itemdetail.html',
+        'itemdata': item
+    }
+    return render(request, 'itemdetail.html', context)
