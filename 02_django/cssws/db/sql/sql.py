@@ -18,6 +18,7 @@ class Sql:
            REGDATE   TIMESTAMP  DEFAULT  CURRENT_TIMESTAMP
          ) 
      ''';
+    # REGDATE DATE DEFAULT (DATETIME('now', 'localtime'))
     insert_itemdb = '''  
          INSERT  INTO  ITEMDB (NAME,PRICE) VALUES  (?,?) 
      ''';

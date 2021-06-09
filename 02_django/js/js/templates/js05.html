@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width:500px;
+            border: 2px solid red;
+        }
+    </style>
+    <script>
+        function display(ds){
+            var str = '';
+            for(var i in ds){
+                str += '<h2>';
+                str += ds[i].id + ' ' + ds[i].name + ' ' + ds[i].age;
+                str += '</h2>';
+            };
+            document.querySelector('#result').innerHTML = str;
+        };
+        function getdata(){
+            var datas = [
+                {'id':'id01','name':'james1','age':10},
+                {'id':'id02','name':'james2','age':20},
+                {'id':'id03','name':'james3','age':30},
+                {'id':'id04','name':'james4','age':40},
+                {'id':'id05','name':'james5','age':50}
+            ];
+            display(datas);
+        };
+    </script>
+</head>
+
+<body>
+    <h1>Data List</h1>
+    <button onclick="getdata();">Get Data</button>
+    <div id="result"></div>
+</body>
+</html>

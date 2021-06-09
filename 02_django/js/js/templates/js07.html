@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+   <script>
+       function start(){
+          st1 = setInterval(function(){
+            document.querySelector('#p1').innerHTML += '*';
+          },800);
+          st2 = setInterval(function(){
+            document.querySelector('#p2').innerHTML += '*';
+          },200);
+          st3 = setInterval(function(){
+            document.querySelector('#p3').innerHTML += '*';
+          },500);
+          setTimeout(function(){
+            clearInterval(st1);
+            clearInterval(st2);
+            clearInterval(st3);
+          },3000);
+       };
+   </script>
+</head>
+
+<body>
+    <h1>JS07 PAGE</h1>
+    <a href="#" onclick="start();">START</a>
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+</body>
+</html>
