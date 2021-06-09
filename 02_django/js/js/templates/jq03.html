@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-1.7.js"></script>
+    <script>
+        $(document).ready(function(){
+            // hover
+            $('button').hover(function(){
+                $(this).css('color','red')  // 버튼 위에 올라가면 빨간색
+            }, function(){
+                $(this).css('color','black')    // 버튼 바깥에 있으면 검은색
+            })
+
+            // focus & blur
+            $('input').focus(function(){
+                $(this).css('background','gray')
+            });
+            $('input').blur(function(){
+                $(this).css('background','yellow')
+            });
+
+            // val
+            $('button').eq(0).click(function(){
+                str = $('input[name="id"]').val()
+                alert(str)
+            });
+
+
+            $('button').eq(1).click(function(){
+                $('input[name="id"]').val('input value')
+            });
+
+            $('button').eq(2).click(function(){
+                $('form').slideDown();
+            });
+
+            $('button').eq(3).click(function(){
+                $('form').slideUp();
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+    <h1>jq03</h1>
+    <button>Button1</button>
+    <button>Button2</button>
+    <button>Button3</button>
+    <button>Button4</button><br>
+    <form>
+        ID<input type="text" name="id"><br>
+        PWD<input type="password" name="pwd"><br>
+    </form>
+
+</body>
+</html>

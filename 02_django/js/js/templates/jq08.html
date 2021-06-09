@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-1.7.js"></script>
+
+    <style>
+        #d1 {
+            width : 400px;
+            border : 2px solid red;
+        }
+    </style>
+
+    <script>
+        function display(data) {
+            $(data).each(function(index,d){
+                console.log(index + ',' + d)
+                $('#d1').append('<p>'+d+'</p>');
+            });
+        }
+
+        function display2(data){
+            $('#d1').empty();
+            $(data).each(function(index,d){
+                id = d.id;
+                pwd = d.pwd;
+                name = d.name;
+                result = '<p>'+id+' '+pwd+' '+name+'</p>';
+                $('#d1').append(result);
+            });
+        }
+
+        function getdata() {
+            var data = ['A', 'B', 'C', 'D'];
+            display(data);
+        }
+
+        function getdata2(){
+            var data = [
+                {'id':'id01','pwd':'pwd01','name':'james'},
+                {'id':'id02','pwd':'pwd02','name':'james'},
+                {'id':'id03','pwd':'pwd03','name':'james'},
+                {'id':'id04','pwd':'pwd04','name':'james'},
+                {'id':'id05','pwd':'pwd05','name':'james'}
+            ];
+            display2(data);
+        }
+
+        $(document).ready(function(){
+            $('button').eq(0).click(function(){
+                getdata();
+            });
+            $('button').eq(1).click(function(){
+               $('#d1').empty();
+            });
+            $('button').eq(2).click(function(){
+               getdata2();
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <h1>jq08</h1>
+    <button>DATA1</button>
+    <button>EMPTY</button>
+    <button>DATA2</button>
+    <div id="d1"></div>
+</body>
+</html>

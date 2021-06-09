@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-1.7.js"></script>
+    <style>
+        div {
+            width: 400px;
+            border: 2px solid red;
+        }
+
+    </style>
+
+    <script>
+        $(document).ready(function(){
+            var i = 1;
+            $('button').eq(0).click(function(){
+                $('div').append('<p>Append' + i + '</p>');
+                i++;
+            });
+            $('button').eq(1).click(function(){
+                $('div').prepend('<p>Prepend' + i + '</p>');
+                i++;
+            });
+            $('button').eq(2).click(function(){
+                $('div').after('<p>After' + i + '</p>');
+                i++;
+            });
+            $('button').eq(3).click(function(){
+                $('div').before('<p>Before' + i + '</p>');
+                i++;
+            });
+            $('button').eq(4).click(function(){
+                $('div').remove();  // 특정 영역(div)를 없애버려서 remove후에 다른 이벤트를 줘도 변화가 없다.
+            });
+            $('button').eq(5).click(function(){
+                $('div').empty();
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+    <h1>jq06</h1>
+    <button>append</button>
+    <button>prepend</button>
+    <button>after</button>
+    <button>before</button>
+    <button>remove</button>
+    <button>empty</button>
+    <div></div>
+</body>
+</html>

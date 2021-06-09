@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-1.7.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('h2').html('<a href="">text</a>');
+            $('h3').css({'color':'red', 'background':'blue'});
+            $('h4').click(function(){
+                $('h3').css({'color':'green'});
+                $(this).css({'color':'yellow'});
+            });
+
+            $('#jq').html('JQ');
+            $('.c1').html('CLASS');
+            $('form > input[name="id"]').css('background','gray');
+        });
+
+    </script>
+</head>
+<body>
+    <h1>jq01</h1>
+    <h2>Header2</h2>
+    <h2 id="jq">Header2</h2>
+    <h3>Header3</h3>
+    <h4>Header4</h4>
+    <h4 class="c1">Header3</h4>
+    <form>
+        ID<input type="text" name="id"><br>
+        PWD<input type="password" name="pwd"><br>
+    </form>
+</body>
+</html>
