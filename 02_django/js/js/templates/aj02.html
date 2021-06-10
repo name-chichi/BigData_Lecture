@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-1.7.js"></script>
+    <style>
+        div {
+            width: 500px;
+            border: 2px solid red;
+        }
+    </style>
+    <script>
+        function display(data) {
+            $('div').empty();
+            $(data).each(function(index, data){
+                loc = data.location  // 변수명을 location으로 하면 url로 매핑되는 문제가 생긴다.
+                datas = data.datas
+                result = '<p>' + loc + ' ' + datas + '</p>';
+                $('div').append(result);
+            });
+        }
+
+        function getdata(type) {
+            $.ajax({
+                url : 'ajs02?type='+type,
+                datatype : 'JSON',
+                success : function(data){
+                    display(data);
+                },
+                error : function(){}
+            });
+        }
+
+        $(document).ready(function(){
+            // 첫번째 버튼을 눌렀을때 이벤트
+            $('button').eq(0).click(function(){
+                getdata('a')
+            });
+
+            // 두번째 버튼을 눌렀을때 이벤트
+            $('button').eq(1).click(function(){
+                getdata('b')
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>aj02</h1>
+    <button>DATA1</button>
+    <button>DATA2</button>
+    <div></div>
+</body>
+</html>

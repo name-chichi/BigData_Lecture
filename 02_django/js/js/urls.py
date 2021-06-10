@@ -39,4 +39,17 @@ urlpatterns = [
     path('jq06', TemplateView.as_view(template_name='jq06.html'), name='jq06'),
     path('jq07', TemplateView.as_view(template_name='jq07.html'), name='jq07'),
     path('jq08', TemplateView.as_view(template_name='jq08.html'), name='jq08'),
+
+    path('aj01', TemplateView.as_view(template_name='aj01.html'), name='aj01'),
+    path('aj011', TemplateView.as_view(template_name='aj011.html'), name='aj011'),
+    path('aj02', TemplateView.as_view(template_name='aj02.html'), name='aj02'),
+    path('aj03', TemplateView.as_view(template_name='aj03.html'), name='aj03'),
+    path('aj04', TemplateView.as_view(template_name='aj04.html'), name='aj04'),
+    path('aj05', TemplateView.as_view(template_name='aj05.html'), name='aj05'),
+
+    path('ajs01', views.ajs01, name='ajs01'),
+    path('ajs011', views.ajs011, name='ajs011'),
+    path('ajs02', views.ajs02, name='ajs02'),
+    path('ajs03', views.ajs03, name='ajs03'),
+    path('ajs04', views.ajs04, name='ajs04'),
 ]

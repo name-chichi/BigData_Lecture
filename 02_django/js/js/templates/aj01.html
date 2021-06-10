@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-1.7.js"></script>
+    <script>
+        function display(data) {
+        }
+
+        function getdata() {
+            $.ajax({
+                url : 'ajs01',
+                type : 'GET',    // default는 get방식
+                datatype : 'JSON',
+                success : function(data){   // 성공하면 이 함수가 실행
+                    // alert(data);
+                    console.log(data);
+                    $('h2').text(data);
+                },
+                error : function(){     // 실패하면 이 함수가 실행
+                    alert('error...');
+                }
+            });
+        }
+
+        $(document).ready(function(){
+            $('button').click(function(){
+                getdata();
+            });
+            setInterval(function(){
+                getdata();
+            },1000);
+        });
+
+    </script>
+</head>
+<body>
+    <h1>aj01</h1>
+    <button>GET DATA</button>
+    <h2></h2>
+</body>
+</html>

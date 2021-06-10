@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-1.7.js"></script>
+
+    <style>
+        div {
+            width : 500px;
+            border : 2px solid red;
+        }
+    </style>
+    <script>
+        function display(data) {
+            console.log(typeof(data));
+            $(data).each(function(index, data){
+                id = data.id;
+                pwd = data.pwd;
+                age = data.age;
+                result = '<p>' + id + ' ' + pwd + ' ' + age + '</p>';
+                $('div').append(result);
+            });
+        }
+
+        function getdata() {
+            $.ajax({
+                url : 'ajs011',
+                type : 'GET',    // default는 get방식
+                datatype : 'JSON',
+                success : function(data){   // 성공하면 이 함수가 실행
+                    // alert(data);
+                    console.log(data);
+                    display(data)
+                },
+                error : function(){     // 실패하면 이 함수가 실행
+                    alert('error...');
+                }
+            });
+        }
+
+        $(document).ready(function(){
+            $('button').click(function(){
+                getdata();
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <h1>aj011</h1>
+    <button>GET DATA</button>
+    <div></div>
+</body>
+</html>
