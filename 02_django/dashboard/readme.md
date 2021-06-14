@@ -12,11 +12,15 @@
 
 
 
+
+
 ## 1. 구현 내용
 
 **1. 부트스트랩 코드 붙이기**
 
    - <img src="md-images/bootstrap00.JPG" align="left"/>
+
+     
 
 **2. index.html 수정**
 
@@ -33,6 +37,7 @@
      {% endif %}
      <!-- end main -->
      ```
+
 
 **3. 메뉴 추가**
 
@@ -54,6 +59,7 @@
      	Dashboard3
      </a>
      ```
+
 
 **4. 서버에서 데이터 가져와서 화면에 테이블 출력**
 
@@ -96,6 +102,7 @@
      </tbody>
      ```
 
+
 **5. ajax 통신하여 데이터 받은 후 Hichart 템플릿 적용**
 
    - ```javascript
@@ -126,6 +133,8 @@
      	]
      	return HttpResponse(json.dumps(data), content_type='application/json')
      ```
+
+
 
 
 
