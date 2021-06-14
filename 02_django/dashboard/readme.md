@@ -18,7 +18,7 @@
 
 **1. 부트스트랩 코드 붙이기**
 
-   - <img src="md-images/bootstrap00.JPG" align="left"/>
+   - ![bootstrap00](md-images/bootstrap00.JPG)
 
      
 
