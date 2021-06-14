@@ -8,7 +8,7 @@
 
 ## django 개발 환경 설정
 
-- [문서 정리](./Django 환경 설정.md)
+- [문서 정리](./Django_DevSetting.md)
 - 개인적인 생각으로 settings.py 에 코드를 일일히 추가해야 한다는 불편함이 있다.
 
 
