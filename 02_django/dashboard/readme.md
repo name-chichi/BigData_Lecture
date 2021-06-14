@@ -16,7 +16,7 @@
 
 1. **부트스트랩 코드 붙이기**
 
-   - <img src="md-images/bootstrap00.JPG" align="left">
+   - <img src="md-images/bootstrap00.JPG" align="left"><br/>
 
 2. **index.html 수정**
 
