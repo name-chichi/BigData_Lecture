@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-v)m_=91x^l8#hju2gxzqogfn(8_u+57t=*ww8!-h9re$_hca@!'
+SECRET_KEY = 'django-insecure-e3d21hi70+&63t(baoi5yx6ow#m7ci#&4w#u%d@22e^f)##3in'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'chart',
+    'dashboard',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +56,6 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,7 +121,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+	os.path.join(BASE_DIR, 'static')
 ]
 
 DATA_DIRS = [
@@ -133,63 +132,3 @@ DATA_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-LOG_FILE = os.path.join(BASE_DIR,'data/mylog.csv');
-
-LOGGING = {
-    'version': 1,
-    # 기존의 로깅 설정을 비활성화 할 것인가?
-    'disable_existing_loggers': False,
-    # 포맷터
-    # 로그 레코드는 최종적으로 텍스트로 표현됨
-    # 이 텍스트의 포맷 형식 정의
-    # 여러 포맷 정의 가능
-    'formatters': {
-        'format1': {
-            'format': '[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s',
-            'datefmt': '%d/%b/%Y %H:%M:%S'
-        },
-        'format2': {
-            'format': '%(levelname)s %(message)s'
-        },
-        'format3': {
-            'format': '%(asctime)s,%(message)s',
-            'datefmt': '%Y-%m-%d-%H-%M-%S'
-        },
-    },
-    # 핸들러
-    # 로그 레코드로 무슨 작업을 할 것인지 정의
-    # 여러 핸들러 정의 가능
-    'handlers': {
-        # 로그 파일을 만들어 텍스트로 로그레코드 저장
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': LOG_FILE,
-            'formatter': 'format3',
-        },
-        # 콘솔(터미널)에 출력
-    'console': {
-        'level': 'DEBUG',
-        'class': 'logging.StreamHandler',
-        'formatter': 'format3',
-    }
-    },
-    # 로거
-    # 로그 레코드 저장소
-    # 로거를 이름별로 정의
-    'loggers': {
-        'users': {
-            'handlers': ['file'],
-            'level': 'DEBUG',
-        },
-        'items': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-        },
-        'iot_file': {
-            'handlers': ['file','console'],
-            'level': 'DEBUG',
-        },
-    },
-}

@@ -81,6 +81,13 @@ class MyAnalysis:
         ]
         return result
 
+    def func_iot(self):
+        f = open(DATA_DIRS[0] + '\\mylog.csv', 'r', encoding='UTF-8')
+        data = csv.reader(f)
+        for row in data:
+            print(row)
+        return
+
 
 if __name__ == '__main__':
     '''
@@ -98,5 +105,10 @@ if __name__ == '__main__':
     print(result)
     '''
 
+    '''
     result = MyAnalysis().genderage2('신도림')
+    print(result)
+    '''
+
+    result = MyAnalysis().func_iot()
     print(result)
