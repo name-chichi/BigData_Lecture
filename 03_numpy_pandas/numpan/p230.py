@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 class p230:
+    # 1. '신도림'지역과 인구 분포가 비슷한 지역을 찾으시오
     def p248(self, loc):
         f = open('age.csv')
         data = csv.reader(f)
@@ -38,16 +39,45 @@ class p230:
         plt.plot(result, label=result_name)
         plt.legend()
         plt.show()
-
-# 1. 전국의 영유아(5세이하)들이 가장 많이 사는 지역 구하시오
-def p231(self):
-    return
+        return
 
 
-# 2. 서울에서 5년간 인구가 가장 많이 늘어난 구를 구하시오
-def p232(self):
-    return
+    # 2. 서울시 영유아(5세이하)들이 가장 많이 사는 지역 구하시오
+    def p231(self):
+        f = open('age2.csv')
+        data = csv.reader(f)
+        next(data)
+        data = list(data)
+        max = 0
+        max_loc = ''
+        for row in data:
+            rdata = np.array(row[3:9], dtype=int)
+            sumdata = np.sum(rdata)
+            if sumdata > max:
+                max = sumdata
+                max_loc = row[0]
+        print(max_loc, max)
+        return
+
+
+    # 3. 서울에서 3년간(18~20) 인구가 가장 많이 늘어난 구를 구하시오
+    #    연령구분 10세 0~100세 데이터 다운로드(전체시군구현황)
+    #    후 총 인구수로 계산
+    def p232(self):
+        f = open('age3.csv')
+        data = csv.reader(f)
+        next(data)
+        data = list(data)
+        max = 0
+        loc = ''
+        for row in data:
+            rdata = int(row[27]) - int(row[1])
+            if rdata > max:
+                max = rdata
+                loc = row[0]
+        print(loc, max)
+        return
 
 
 if __name__ == '__main__':
-    p230().p248('신도림')
+    p230().p232()
