@@ -101,7 +101,7 @@ print(result3)  # [10, 88, 66, 40]
          p230().p248('신도림')
          
      ''' 출력 결과
-     C:\Python\Python36\python.exe C:/PycharmProjects/03_numpy_pandas/numpan/p230.py
+     C:\Python\Python36\python.exe C:/PycharmProjects/03_numpy_pandas/numpy/p230.py
      <class '_csv.reader'>
      <class 'list'>
      '''
