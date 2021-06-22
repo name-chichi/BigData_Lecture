@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<script>
+    function display(lat, lng){
+        var container = document.getElementById('map');
+        var options = {
+	        center: new kakao.maps.LatLng(lat, lng),
+	        level: 6
+        };
+        var map = new kakao.maps.Map(container, options);
+        var markerPosition  = new kakao.maps.LatLng(lat, lng);
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        });
+        marker.setMap(map);
+
+        var iwContent = '<div style="padding:5px;">Hello World! <br><a href="https://map.kakao.com/link/map/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+        iwPosition = new kakao.maps.LatLng(lat,lng);
+        var infowindow = new kakao.maps.InfoWindow({
+            position : iwPosition,
+            content : iwContent
+        });
+        infowindow.open(map, marker);
+    };
+
+    $(document).ready(function(){
+        display(37.4978079,127.0480765);
+        $('#geo1').click(function(){
+            display(37.518214,130.834082);
+        });
+        $('#geo2').click(function(){
+            display(37.6353418,128.8117654);
+        });
+    });
+</script>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-4 text-gray-800">Geo location</h1>
+    <button id="geo1">Geo1</button><button id="geo2">Geo2</button>
+    <div id="map" style="width:500px;height:400px;"></div>
+</div>
+<!-- /.container-fluid -->
